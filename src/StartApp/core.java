@@ -15,7 +15,7 @@ public class core {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hotel hotel = new Hotel("U Pardubic", 2);
+        Hotel hotel = new Hotel("U Pardubic", 5);
         
         
         System.out.println(hotel.setRooms(new Room[]{
