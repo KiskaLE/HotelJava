@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Room {
 
     int index;
-    final int capacity;
+    int capacity;
     private boolean Occupied;
     private Host[] hosts;
 
@@ -32,6 +32,7 @@ public class Room {
             if (hosts.length <= capacity) {
                 this.hosts = hosts;
                 setIsOccupied(true);
+                s+= "Hosté byli ubytováni";
             } else {
                 s += "nedostatečné místo";
             }

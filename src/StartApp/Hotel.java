@@ -43,24 +43,27 @@ public class Hotel {
     }
     public String addHosts(int index, Host[] hosts){
         String s = "";
-        try {
+        if (rooms != null) {
             for (int i = 0; i < rooms.length; i++) {
-            Room room = rooms[i];
-            if (i == rooms.length) s+= "Nejsou žádné volné pokoje";
-            if (room.isOccupied() || room.getCapacity()<hosts.length){
-                continue;
-            }else{
-                this.rooms[i].setHosts(hosts);
-                capacity--;
-                s+="Hosté ubytováni";
-                break;
-            }
+                Room room = rooms[i];
                 
+                if (room.isOccupied() || room.getCapacity()<hosts.length){
+                    
+                    if (i == rooms.length-1){
+                    s+= "Nejsou žádné volné pokoje";
+                    continue;
+                    }
+                   
+                }else{
+                    s+=this.rooms[i].setHosts(hosts);
+                    break;
+                }
+            }
+        }else{
+            s+= "nejsou žádné pokoje";
+        }
             
-        }
-        } catch (Exception e) {
-            s+= "žádné volné místo: ";
-        }
+        
         
         
         return s;
